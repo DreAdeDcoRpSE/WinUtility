@@ -104,6 +104,14 @@ The current release updates **all features for Windows 11**, adds new reporting,
 
 ---
 
+## Support
+
+If you find this script useful, feel free to buy me a coffee or make a small donation:
+
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-yellow)](https://www.paypal.com/paypalme/dreadedcorpse)
+
+---
+
 ## License
 
 This project is licensed under the **[GNU General Public License v3.0](https://opensource.org/licenses/GPL-3.0)**. You are free to use, modify, and distribute the code, provided you include proper attribution to the author.
