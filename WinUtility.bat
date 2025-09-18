@@ -1,4 +1,5 @@
 @echo off
+mode con: cols=130 lines=42
 :: SPDX-License-Identifier: GPL-3.0-or-later
 :: Copyright (C) 2025 headshotdomain.net
 
@@ -75,23 +76,24 @@ echo ## 8.   [37mOpen Disk CleanUp[32m
 echo ## 9.   [37mOpen Disk Managment[32m
 echo ## 10.  [37mNetwork Check [33m(Pings/Traceroute [35mgoogle.com[33m by Default)[32m
 echo ## 11.  [37mPing/Traceroute Custom IP/URL[32m
-echo ## 12.  [37mFlush DNS[32m
-echo ## 13.  [37mReset Network Adapters[32m
-echo ## 14.  [37mPort Listing[32m
-echo ## 15.  [37mOpen Reliability Monitor[32m
-echo ## 16.  [37mOpen Event Viewer[32m
-echo ## 17.  [37mWindows AutoClean on Boot[32m
-echo ## 18.  [37mWindows Color Calibration[32m
-echo ## 19.  [37mMake Godmode Shortcut[32m
-echo ## 20.  [37mRebuild Icon Cache[32m
-echo ## 21.  [37mRetreve Win 11 Product Key[32m
-echo ## 22.  [37mCreate Battery Report[32m [33m(For those on laptops)[32m
-echo ## 23.  [37mPower Configuration[32m [33m(For those on laptops)[32m
-echo ## 24.  [37mUninstaller - (Semi Advanced)[32m
-echo ## 25.  [37mDrive Tree Exporter[32m
-echo ## 26.  [37mVirus Scan - (Windows Defender)[32m
-echo ## 27.  [37mCreate Installed Programs List[32m
-echo ## 28.  [37mRestart into BIOS[32m
+echo ## 12.  [37mSpeed Test by Ookla[32m
+echo ## 13.  [37mFlush DNS[32m
+echo ## 14.  [37mReset Network Adapters[32m
+echo ## 15.  [37mPort Listing[32m
+echo ## 16.  [37mOpen Reliability Monitor[32m
+echo ## 17.  [37mOpen Event Viewer[32m
+echo ## 18.  [37mWindows AutoClean on Boot[32m
+echo ## 19.  [37mWindows Color Calibration[32m
+echo ## 20.  [37mMake Godmode Shortcut[32m
+echo ## 21.  [37mRebuild Icon Cache[32m
+echo ## 22.  [37mRetreve Win 11 Product Key[32m
+echo ## 23.  [37mCreate Battery Report[32m [33m(For those on laptops)[32m
+echo ## 24.  [37mPower Configuration[32m [33m(For those on laptops)[32m
+echo ## 25.  [37mUninstaller - (Semi Advanced)[32m
+echo ## 26.  [37mDrive Tree Exporter[32m
+echo ## 27.  [37mVirus Scan - (Windows Defender)[32m
+echo ## 28.  [37mCreate Installed Programs List[32m
+echo ## 29.  [37mRestart into BIOS[32m
 echo ## [33m?[32m.   [37mAbout / Copyright[32m
 echo ## [31mQ[32m.   [37mExit Script[32m
 echo #########################################[0m
@@ -110,23 +112,24 @@ if %N%==8 GOTO DISKC
 if %N%==9 GOTO DISKMANAGE
 if %N%==10 GOTO NETWORK
 if %N%==11 GOTO YTRACEPING
-if %N%==12 GOTO FDNS
-if %N%==13 GOTO RSETNADPT
-if %N%==14 GOTO TPORT
-if %N%==15 GOTO OPENREL
-if %N%==16 GOTO OPENEVENTVWR
-if %N%==17 GOTO ACCHECK
-if %N%==18 GOTO CCAL
-if %N%==19 GOTO GODMODE
-if %N%==20 GOTO REBUILDICON
-if %N%==21 GOTO WINKEY
-if %N%==22 GOTO BATREPORT
-if %N%==23 GOTO POWERCON
-if %N%==24 GOTO CUNINSTALLER
-if %N%==25 GOTO DRIVETREE
-if %N%==26 GOTO WINSCAN
-if %N%==27 GOTO INSTALLEDPROGRAMS
-if %N%==28 GOTO RESTARTINBIOS
+if %N%==12 GOTO SPEEDTEST
+if %N%==13 GOTO FDNS
+if %N%==14 GOTO RSETNADPT
+if %N%==15 GOTO TPORT
+if %N%==16 GOTO OPENREL
+if %N%==17 GOTO OPENEVENTVWR
+if %N%==18 GOTO ACCHECK
+if %N%==19 GOTO CCAL
+if %N%==20 GOTO GODMODE
+if %N%==21 GOTO REBUILDICON
+if %N%==22 GOTO WINKEY
+if %N%==23 GOTO BATREPORT
+if %N%==24 GOTO POWERCON
+if %N%==25 GOTO CUNINSTALLER
+if %N%==26 GOTO DRIVETREE
+if %N%==27 GOTO WINSCAN
+if %N%==28 GOTO INSTALLEDPROGRAMS
+if %N%==29 GOTO RESTARTINBIOS
 if %N%==? GOTO ABOUT
 if %N%==Q GOTO QUIT
 if %N%==q GOTO QUIT
@@ -1172,6 +1175,121 @@ pause
 goto MENU
 
 REM ###################################################### NEW SECTION [12] ##############################################################
+:SPEEDTEST
+cls
+setlocal
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+echo This test uses the Speedtest CLI from Ookla via their public download URL,
+echo but without installing it. It just downloads the .exe to a temp folder, runs it, and deletes it after.
+echo.
+echo If you are okay with that, then press Y and we will begin your speed test.
+echo.
+:SPEEDTESTCONFIRM
+set /p proceed=Do you want to continue?  [33m^[Y/N^][0m:
+if NOT "%proceed%"=="" set "proceed=%proceed:~0,1%"
+if /i "%proceed%"=="N" goto MENU
+if /i "%proceed%"=="Y" goto SPEEDTESTEXPORT
+if "%proceed%"=="" goto SPEEDTESTCONFIRM
+echo "%proceed%" is not valid
+goto SPEEDTESTCONFIRM
+
+:SPEEDTESTEXPORT
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+echo When you run this script, you will be given a URL to your results page if you like to
+echo visit it. You will need to highlight the URL and press CTRL+C to copy the URL.
+echo.
+set "choice="
+set /p choice=Would you also like to save your results to a text file?  [33m^[Y/N^][0m:
+if not "%choice%"=="" set "choice=%choice:~0,1%"
+if /i "%choice%"=="y" set "stexport=save" & goto SPEEDTESTY
+if /i "%choice%"=="n" set "stexport=" & goto SPEEDTESTY
+echo.
+echo [31m[1mI'm sorry, but you must input a valid option.[0m
+echo.
+goto SPEEDTESTEXPORT
+
+:SPEEDTESTY
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+if "%stexport%"=="save" (
+  setlocal EnableDelayedExpansion
+)
+set "TMPDIR=%TEMP%\speedtest"
+if not exist "%TMPDIR%" mkdir "%TMPDIR%"
+
+if "%stexport%"=="save" (
+    set "LOGDIR=%USERPROFILE%\Documents\SpeedTest_Results"
+    if not exist "!LOGDIR!" mkdir "!LOGDIR!"
+)
+
+echo Downloading Speedtest CLI...
+powershell -Command ^
+"Invoke-WebRequest -Uri 'https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-win64.zip' -OutFile '%TMPDIR%\speedtest.zip'"
+
+powershell -Command ^
+"Expand-Archive -Path '%TMPDIR%\speedtest.zip' -DestinationPath '%TMPDIR%' -Force"
+
+echo Running speed test...
+if "%stexport%"=="save" (
+  echo.
+  echo This can take a min...
+  echo [33m^(Because we are saving to a file, the animation of the test is hidden.^)[0m
+  echo.
+)
+if "%stexport%"=="save" (
+    for /f %%I in ('powershell -NoProfile -Command "Get-Date -Format \"yyyy-MM-dd_HH-mm-ss\""') do set "dt=%%I"
+    set "LOGFILE=!LOGDIR!\speedtest_!dt!.txt"
+
+    REM Run speedtest and save to file, then display the results
+    "%TMPDIR%\speedtest.exe" > "!LOGFILE!"
+    type "!LOGFILE!"
+) ELSE (
+    "%TMPDIR%\speedtest.exe"
+)
+REM Lets get rid of the temp file
+rd /s /q "%TMPDIR%"
+
+echo.
+echo Press Ctrl + Left Click to open link in browser.
+if "%stexport%"=="save" (
+REM End local scope before any goto operations
+endlocal & set "LOGFILE=%LOGFILE%"
+    timeout /t 2 /nobreak > NUL
+    echo.
+    echo [33mLog saved to: [96m"%LOGFILE%"[0m:
+)
+timeout /t 3 /nobreak > NUL
+if "%stexport%"=="save" (
+  GOTO STOPSTFILE
+) ELSE (
+  pause
+  GOTO MENU
+)
+  :STOPSTFILE
+    set "choice="
+    set /p choice=Would you like to view the file now?  [33m^[Y/N^][0m:
+    if not "%choice%"=="" set "choice=%choice:~0,1%"
+    if /i "%choice%"=="y" goto OPENSTFILE
+    if /i "%choice%"=="n" goto MENU
+    echo.
+    echo [31m[1mI'm sorry, but you must input a valid option.[0m
+    echo.
+  GOTO STOPSTFILE
+
+  :OPENSTFILE
+    echo.
+    echo Okay, let me open that for you then.
+    echo Give me 1 sec.
+    echo.
+    timeout /t 3 /nobreak > NUL
+    notepad.exe "%LOGFILE%"
+  pause
+  goto MENU
+
+REM ###################################################### NEW SECTION [13] ##############################################################
 :FDNS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1225,7 +1343,7 @@ if "%addrenew%"=="RENEW" (
 )
 
 
-REM ###################################################### NEW SECTION [13] ##############################################################
+REM ###################################################### NEW SECTION [14] ##############################################################
 :RSETNADPT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1296,7 +1414,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [14] ##############################################################
+REM ###################################################### NEW SECTION [15] ##############################################################
 :TPORT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1355,7 +1473,7 @@ echo. >>  "%UserProfile%\Port_Test_Results.txt"
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [15] ##############################################################
+REM ###################################################### NEW SECTION [16] ##############################################################
 REM Open Reliability Monitor
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1371,7 +1489,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [16] ##############################################################
+REM ###################################################### NEW SECTION [17] ##############################################################
 REM Open Event Viewer
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1388,7 +1506,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [17] ##############################################################
+REM ###################################################### NEW SECTION [18] ##############################################################
 REM Auto Clean system for Windows, (on boot). Creates a file in the Startup folder.
 :ACCHECK
 cls
@@ -1487,7 +1605,7 @@ if exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\AutoClean.bat"
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [18] ##############################################################
+REM ###################################################### NEW SECTION [19] ##############################################################
 :CCAL
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1505,7 +1623,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [19] ##############################################################
+REM ###################################################### NEW SECTION [20] ##############################################################
 REM Make Godmode button
 :GODMODE
 cls
@@ -1617,7 +1735,7 @@ echo.
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [20] ##############################################################
+REM ###################################################### NEW SECTION [21] ##############################################################
 REM Rebuild Icon Cache
 :REBUILDICON
 cls
@@ -1697,7 +1815,7 @@ timeout /t 3 /nobreak >Nul
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [21] ##############################################################
+REM ###################################################### NEW SECTION [22] ##############################################################
 :WINKEY
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1783,7 +1901,7 @@ echo Close notepad to continue.
 notepad.exe "%UserProfile%\Win_11_Product_key.txt"
 goto MENU
 
-REM ###################################################### NEW SECTION [22] ##############################################################
+REM ###################################################### NEW SECTION [23] ##############################################################
 :BATREPORT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1839,7 +1957,7 @@ echo "%choice%" is not valid
 echo.
 GOTO BATREPORTPASSOFF
 
-REM ###################################################### NEW SECTION [23] ##############################################################
+REM ###################################################### NEW SECTION [24] ##############################################################
 :POWERCON
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1904,7 +2022,7 @@ start "" "%UserProfile%\Desktop\energy-report.html"
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [24] ##############################################################
+REM ###################################################### NEW SECTION [25] ##############################################################
 :CUNINSTALLER
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2000,7 +2118,7 @@ pause
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [25] ##############################################################
+REM ###################################################### NEW SECTION [26] ##############################################################
 :DRIVETREE
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2091,7 +2209,7 @@ GOTO TREEANOTHER
 
 
 
-REM ###################################################### NEW SECTION [26] ##############################################################
+REM ###################################################### NEW SECTION [27] ##############################################################
 :WINSCAN
 cls
 REM #####################################  ART START #####################################
@@ -2246,7 +2364,6 @@ GOTO WDFSCAN3
 
 :WDFSCAN4
 cls
-
 REM #####################################  ART START #####################################
 for /f "tokens=* delims=!:" %%A in ('findstr /b :!: "%~f0"') do @echo(%%A
 REM ######################################  ART END ######################################
@@ -2322,7 +2439,7 @@ timeout /t 2 /nobreak > NUL
 GOTO SHUTDOWN
 
 
-REM ###################################################### NEW SECTION [27] ##############################################################
+REM ###################################################### NEW SECTION [28] ##############################################################
 :INSTALLEDPROGRAMS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2338,7 +2455,7 @@ echo.
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [28] ##############################################################
+REM ###################################################### NEW SECTION [29] ##############################################################
 :RESTARTINBIOS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2477,11 +2594,11 @@ REM Let's put in our art work for this script
 :!:                              :
 :!:                              .
 
-::! __          ___       _    _ _   _ _ _ _
-::! \ \        / (_)     | |  | | | (_) (_) |
-::!  \ \  /\  / / _ _ __ | |  | | |_ _| |_| |_ _   _
-::!   \ \/  \/ / | | '_ \| |  | | __| | | | __| | | |
-::!    \  /\  /  | | | | | |__| | |_| | | | |_| |_| |
-::!     \/  \/   |_|_| |_|\____/ \__|_|_|_|\__|\__, |
+::! [96m__          ___      [0m _    _ _   _ _ _ _
+::! [96m\ \        / (_)     [0m| |  | | | (_) (_) |
+::! [96m \ \  /\  / / _ _ __ [0m| |  | | |_ _| |_| |_ _   _
+::! [96m  \ \/  \/ / | | '_ \[0m| |  | | __| | | | __| | | |
+::! [96m   \  /\  /  | | | | |[0m |__| | |_| | | | |_| |_| |
+::! [96m    \/  \/   |_|_| |_|[0m\____/ \__|_|_|_|\__|\__, |
 ::!                                             __/ |
 ::!                                            |___/
