@@ -44,8 +44,9 @@ Alternatively, you can create a new `.bat` file and paste the entire code into i
 WinUtility includes a wide array of tools organized in a menu system:
 
 ### Cleaning
-1. **Simple CleanUp** – removes common temp files.
-2. **Deeper CleanUp** – more comprehensive system cleaning for Windows 11.
+1. **Simple CleanUp** – Deep cleans your PC by removing junk files and temporary data.
+2. **Deeper CleanUp** – Deep cleans your PC by removing junk files, caches, and temporary data, then optimizes your drives.
+3. **Deep CleanUp W/Win Health Check** - Deep cleans your PC by removing junk files, caches, and temporary data, then optimizes your drives, then repairs Windows integrity and clears DNS.
 
 ### System & Hardware
 3. **System Information** – detailed info using PowerShell (replaces deprecated WMIC), including RAM, HD space, uptime, motherboard, BIOS, and networking details.
