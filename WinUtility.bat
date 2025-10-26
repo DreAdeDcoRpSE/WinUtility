@@ -65,35 +65,36 @@ echo.
 echo [32m#########################################
 echo ##         Windows Utility Menu        ##
 echo #########################################
-echo ## 1.   [37mStart Simple CleanUp[32m
-echo ## 2.   [37mStart Deeper CleanUp[32m
-echo ## 3.   [37mSystem Information[32m
-echo ## 4.   [37mCheck ^& Repair Windows 11[32m
-echo ## 5.   [37mImage Repair 11 -[31m[1m Run only if #4 showed issues[0m[32m
-echo ## 6.   [37mRun Check Disk to possibly repair a HD[32m
-echo ## 7.   [37mOpen Host File[32m
-echo ## 8.   [37mOpen Disk CleanUp[32m
-echo ## 9.   [37mOpen Disk Managment[32m
-echo ## 10.  [37mNetwork Check [33m(Pings/Traceroute [35mgoogle.com[33m by Default)[32m
-echo ## 11.  [37mPing/Traceroute Custom IP/URL[32m
-echo ## 12.  [37mSpeed Test by Ookla[32m
-echo ## 13.  [37mFlush DNS[32m
-echo ## 14.  [37mReset Network Adapters[32m
-echo ## 15.  [37mPort Listing[32m
-echo ## 16.  [37mOpen Reliability Monitor[32m
-echo ## 17.  [37mOpen Event Viewer[32m
-echo ## 18.  [37mWindows AutoClean on Boot[32m
-echo ## 19.  [37mWindows Color Calibration[32m
-echo ## 20.  [37mMake Godmode Shortcut[32m
-echo ## 21.  [37mRebuild Icon Cache[32m
-echo ## 22.  [37mRetreve Win 11 Product Key[32m
-echo ## 23.  [37mCreate Battery Report[32m [33m(For those on laptops)[32m
-echo ## 24.  [37mPower Configuration[32m [33m(For those on laptops)[32m
-echo ## 25.  [37mUninstaller - (Semi Advanced)[32m
-echo ## 26.  [37mDrive Tree Exporter[32m
-echo ## 27.  [37mVirus Scan - (Windows Defender)[32m
-echo ## 28.  [37mCreate Installed Programs List[32m
-echo ## 29.  [37mRestart into BIOS[32m
+echo ## 1.   [37mSimple CleanUp[32m
+echo ## 2.   [37mDeep CleanUp[32m
+echo ## 3.   [37mDeep CleanUp W/Win Health Check[32m
+echo ## 4.   [37mSystem Information[32m
+echo ## 5.   [37mCheck ^& Repair Windows 11[32m
+echo ## 6.   [37mImage Repair 11 -[31m[1m Run only if #4 showed issues[0m[32m
+echo ## 7.   [37mRun Check Disk to possibly repair a HD[32m
+echo ## 8.   [37mOpen Host File[32m
+echo ## 9.   [37mOpen Disk CleanUp[32m
+echo ## 10.  [37mOpen Disk Managment[32m
+echo ## 12.  [37mNetwork Check [33m(Pings/Traceroute [35mgoogle.com[33m by Default)[32m
+echo ## 12.  [37mPing/Traceroute Custom IP/URL[32m
+echo ## 13.  [37mSpeed Test by Ookla[32m
+echo ## 14.  [37mFlush DNS[32m
+echo ## 15.  [37mReset Network Adapters[32m
+echo ## 16.  [37mPort Listing[32m
+echo ## 17.  [37mOpen Reliability Monitor[32m
+echo ## 18.  [37mOpen Event Viewer[32m
+echo ## 19.  [37mWindows AutoClean on Boot[32m
+echo ## 20.  [37mWindows Color Calibration[32m
+echo ## 21.  [37mMake Godmode Shortcut[32m
+echo ## 22.  [37mRebuild Icon Cache[32m
+echo ## 23.  [37mRetreve Win 11 Product Key[32m
+echo ## 24.  [37mCreate Battery Report[32m [33m(For those on laptops)[32m
+echo ## 25.  [37mPower Configuration[32m [33m(For those on laptops)[32m
+echo ## 26.  [37mUninstaller - (Semi Advanced)[32m
+echo ## 27.  [37mDrive Tree Exporter[32m
+echo ## 28.  [37mVirus Scan - (Windows Defender)[32m
+echo ## 29.  [37mCreate Installed Programs List[32m
+echo ## 30.  [37mRestart into BIOS[32m
 echo ## [33m?[32m.   [37mAbout / Copyright[32m
 echo ## [31mQ[32m.   [37mExit Script[32m
 echo #########################################[0m
@@ -103,33 +104,34 @@ set N=
 set /P N=Type a number between (1 - 22), Q, or (?) then press [33mENTER[0m:
 if %N%==1 GOTO CLEAN
 if %N%==2 GOTO DCLEAN
-if %N%==3 GOTO SYSTEM
-if %N%==4 GOTO WINFIX
-if %N%==5 GOTO IMGREPAIR
-if %N%==6 GOTO CHCKDSK
-if %N%==7 GOTO HOST
-if %N%==8 GOTO DISKC
-if %N%==9 GOTO DISKMANAGE
-if %N%==10 GOTO NETWORK
-if %N%==11 GOTO YTRACEPING
-if %N%==12 GOTO SPEEDTEST
-if %N%==13 GOTO FDNS
-if %N%==14 GOTO RSETNADPT
-if %N%==15 GOTO TPORT
-if %N%==16 GOTO OPENREL
-if %N%==17 GOTO OPENEVENTVWR
-if %N%==18 GOTO ACCHECK
-if %N%==19 GOTO CCAL
-if %N%==20 GOTO GODMODE
-if %N%==21 GOTO REBUILDICON
-if %N%==22 GOTO WINKEY
-if %N%==23 GOTO BATREPORT
-if %N%==24 GOTO POWERCON
-if %N%==25 GOTO CUNINSTALLER
-if %N%==26 GOTO DRIVETREE
-if %N%==27 GOTO WINSCAN
-if %N%==28 GOTO INSTALLEDPROGRAMS
-if %N%==29 GOTO RESTARTINBIOS
+if %N%==3 GOTO DCLEANWWIN
+if %N%==4 GOTO SYSTEM
+if %N%==5 GOTO WINFIX
+if %N%==6 GOTO IMGREPAIR
+if %N%==7 GOTO CHCKDSK
+if %N%==8 GOTO HOST
+if %N%==9 GOTO DISKC
+if %N%==10 GOTO DISKMANAGE
+if %N%==11 GOTO NETWORK
+if %N%==12 GOTO YTRACEPING
+if %N%==13 GOTO SPEEDTEST
+if %N%==14 GOTO FDNS
+if %N%==15 GOTO RSETNADPT
+if %N%==16 GOTO TPORT
+if %N%==17 GOTO OPENREL
+if %N%==18 GOTO OPENEVENTVWR
+if %N%==19 GOTO ACCHECK
+if %N%==20 GOTO CCAL
+if %N%==21 GOTO GODMODE
+if %N%==22 GOTO REBUILDICON
+if %N%==23 GOTO WINKEY
+if %N%==24 GOTO BATREPORT
+if %N%==25 GOTO POWERCON
+if %N%==26 GOTO CUNINSTALLER
+if %N%==27 GOTO DRIVETREE
+if %N%==28 GOTO WINSCAN
+if %N%==29 GOTO INSTALLEDPROGRAMS
+if %N%==30 GOTO RESTARTINBIOS
 if %N%==? GOTO ABOUT
 if %N%==Q GOTO QUIT
 if %N%==q GOTO QUIT
@@ -174,79 +176,93 @@ echo.
 echo Just know, this can take a few min.
 timeout /t 1 /nobreak >nul
 
+REM Initialize counters
+set "filesDeleted=0"
+set "foldersRemoved=0"
+
 REM --- Ask about recycle bin ---
 set "pdelete="
-set /p choice=Do you want me empty your Recycling Bin? [31m^(permanently deleted^)  [33m^[Y/N^][0m:
-if /i "%choice%"=="y" set "pdelete=YES"
-if /i "%choice%"=="n" set "pdelete=NO"
+:ASK_RECYCLE1
+set "choice="
+set /p choice=Do you want me to empty your Recycling Bin? [31m^(permanently deleted^) [33m^[Y/N^][0m:
+if /i "%choice%"=="y" (
+    set "pdelete=YES"
+    goto ASK_SHUTDOWN1
+)
+if /i "%choice%"=="n" (
+    set "pdelete=NO"
+    goto ASK_SHUTDOWN1
+)
+echo [31mInvalid input! Please enter Y or N only.[0m
+echo.
+goto ASK_RECYCLE1
 
 REM --- Ask about shutdown ---
+:ASK_SHUTDOWN1
 set "powerc="
+set "choice="
 set /p choice=Do you want me to shutdown your PC after cleanup? [33m^[Y/N^][0m:
-if /i "%choice%"=="y" set "powerc=SHUTDOWN"
-
+if /i "%choice%"=="y" (
+    set "powerc=SHUTDOWN"
+    goto CONTINUE_CLEANUP1
+)
+if /i "%choice%"=="n" (
+    goto CONTINUE_CLEANUP1
+)
+echo [31mInvalid input! Please enter Y or N only.[0m
 echo.
-echo Cleanup will begin...
-timeout /t 1 /nobreak >nul
+goto ASK_SHUTDOWN1
 
-set /a deletedFiles=0
-set /a deletedDirs=0
+:CONTINUE_CLEANUP1
+timeout /t 1 /nobreak > NUL
+echo.
+echo Cleanup will begin.
+timeout /t 1 /nobreak > NUL
+echo.
+cls
 
-REM --- Empty recycle bin ---
+REM -------------------------
+REM Recycle Bin
 if "%pdelete%"=="YES" (
    for %%d in (c d e f g h i j k l m n o p q r s t u v w x y z) do (
-     rd /s /q %%d:\$Recycle.bin 2>nul && set /a deletedDirs+=1
+     if exist "%%d:\$Recycle.bin" (
+        rd /s /q "%%d:\$Recycle.bin" >nul 2>&1
+        if not exist "%%d:\$Recycle.bin" set /a foldersRemoved+=1
+     )
    )
    echo Recycle bin emptied.
-   echo.
+   timeout /t 1 /nobreak > NUL
 )
-
-REM --- Delete temp files ---
-for /f "delims=" %%F in ('dir /a:-d /b /s "%temp%\*" 2^>nul') do (
-    del /f /q "%%F" >nul 2>&1 && set /a deletedFiles+=1
-)
-for /d %%i in ("%temp%\*") do rd /s /q "%%i" && set /a deletedDirs+=1
-
-for /f "delims=" %%F in ('dir /a:-d /b /s "%LocalAppData%\Temp\*" 2^>nul') do (
-    del /f /q "%%F" >nul 2>&1 && set /a deletedFiles+=1
-)
-for /d %%i in ("%LocalAppData%\Temp\*") do rd /s /q "%%i" && set /a deletedDirs+=1
-
-for /f "delims=" %%F in ('dir /a:-d /b /s "%windir%\Temp\*" 2^>nul') do (
-    del /f /q "%%F" >nul 2>&1 && set /a deletedFiles+=1
-)
-for /d %%i in ("%windir%\Temp\*") do rd /s /q "%%i" && set /a deletedDirs+=1
-
-REM --- Prefetch ---
-for /f "delims=" %%F in ('dir /a:-d /b /s "%windir%\Prefetch\*" 2^>nul') do (
-    del /f /q "%%F" >nul 2>&1 && set /a deletedFiles+=1
-)
-
-REM --- Windows Update cache ---
-if exist "%windir%\SoftwareDistribution\Download" (
-    rd /s /q "%windir%\SoftwareDistribution\Download" && set /a deletedDirs+=1
-)
-if exist "%SystemRoot%\SoftwareDistribution\DeliveryOptimization" (
-    rd /s /q "%SystemRoot%\SoftwareDistribution\DeliveryOptimization" && set /a deletedDirs+=1
-)
-
-REM --- Error reports ---
-if exist "%ALLUSERSPROFILE%\Microsoft\Windows\WER\ReportQueue" (
-    rd /s /q "%ALLUSERSPROFILE%\Microsoft\Windows\WER\ReportQueue" && set /a deletedDirs+=1
-)
-
-REM --- Optional big cleanup: Windows.old ---
-if exist "%systemdrive%\Windows.old" (
-    rd /s /q "%systemdrive%\Windows.old" && set /a deletedDirs+=1
-)
-
 echo.
-echo Cleaning of junk files is finished!
-echo Files deleted : %deletedFiles%
-echo Folders removed: %deletedDirs%
-timeout /t 2 /nobreak >nul
-echo Thank you for using my script.
-timeout /t 1 /nobreak >nul
+echo This can take a while, so please, be patient.
+REM -------------------------
+REM Delete files/folders (all original areas)
+for %%F in (%temp%\*.tmp) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+echo Cleared temp folder.
+for %%F in (%windir%\prefetch\*.*) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+echo Finished clearing prefetch folder.
+for %%F in (%windir%\temp\*.*) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+for /d %%D in ("%windir%\temp\*") do rd /s /q "%%D" >nul 2>&1 & set /a foldersRemoved+=1
+echo Finished cleaning Windows Temp folder.
+
+if exist "%LocalAppData%\temp\*.*" (
+  for %%F in (%LocalAppData%\temp\*.*) do del "%%F" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
+  for /d %%D in (%LocalAppData%\temp\*.*) do rd /s /q "%%D" >nul 2>&1 & set /a foldersRemoved+=1
+  echo Finished clearing LocalAppData temp.
+)
+
+if exist "%HOMEDRIVE%\*.tmp" del "%HOMEDRIVE%\*.tmp" /f /q >nul 2>&1 & set /a filesDeleted+=1
+if exist "%HOMEDRIVE%\temp\*.tmp" del "%HOMEDRIVE%\temp\*.tmp" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
+echo Drive temp cleanup complete.
+
+if exist "%ALLUSERSPROFILE%\Microsoft\Windows\WER\Reportqueue" rd /s /q "%ALLUSERSPROFILE%\Microsoft\Windows\WER\Reportqueue" >nul 2>&1 & set /a foldersRemoved+=1
+echo Update leftovers removed.
+echo.
+echo Simple cleaning done, your results:
+echo [33m[1mFiles deleted[0m: %filesDeleted%
+echo [33m[1mFolders removed[0m: %foldersRemoved%
+echo.
+timeout /t 4 /nobreak > NUL
 echo.
 goto SHUTDOWN
 
@@ -272,20 +288,44 @@ set "foldersRemoved=0"
 
 REM --- Ask about recycle bin ---
 set "pdelete="
+:ASK_RECYCLE2
+set "choice="
 set /p choice=Do you want me to empty your Recycling Bin? [31m^(permanently deleted^) [33m^[Y/N^][0m:
-if /i "%choice%"=="y" set "pdelete=YES"
-if /i "%choice%"=="n" set "pdelete=NO"
+if /i "%choice%"=="y" (
+    set "pdelete=YES"
+    goto ASK_SHUTDOWN2
+)
+if /i "%choice%"=="n" (
+    set "pdelete=NO"
+    goto ASK_SHUTDOWN2
+)
+echo [31mInvalid input! Please enter Y or N only.[0m
+echo.
+goto ASK_RECYCLE2
 
 REM --- Ask about shutdown ---
+:ASK_SHUTDOWN2
 set "powerc="
+set "choice="
 set /p choice=Do you want me to shutdown your PC after cleanup? [33m^[Y/N^][0m:
-if /i "%choice%"=="y" set "powerc=SHUTDOWN"
+if /i "%choice%"=="y" (
+    set "powerc=SHUTDOWN"
+    goto CONTINUE_CLEANUP2
+)
+if /i "%choice%"=="n" (
+    goto CONTINUE_CLEANUP2
+)
+echo [31mInvalid input! Please enter Y or N only.[0m
+echo.
+goto ASK_SHUTDOWN2
 
+:CONTINUE_CLEANUP2
 timeout /t 1 /nobreak > NUL
 echo.
 echo Cleanup will begin.
 timeout /t 1 /nobreak > NUL
 echo.
+cls
 
 REM -------------------------
 REM Recycle Bin
@@ -304,47 +344,249 @@ echo This can take a while, so please, be patient.
 REM -------------------------
 REM Delete files/folders (all original areas)
 for %%F in (%temp%\*.tmp) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+echo Cleared temp folder.
 for %%F in (%windir%\prefetch\*.*) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+echo Finished clearing prefetch folder.
 for %%F in (%windir%\temp\*.*) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
 for /d %%D in ("%windir%\temp\*") do rd /s /q "%%D" >nul 2>&1 & set /a foldersRemoved+=1
+echo Finished cleaning Windows Temp folder.
 
 if exist "%LocalAppData%\temp\*.*" (
   for %%F in (%LocalAppData%\temp\*.*) do del "%%F" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
   for /d %%D in (%LocalAppData%\temp\*.*) do rd /s /q "%%D" >nul 2>&1 & set /a foldersRemoved+=1
+  echo Finished clearing LocalAppData temp.
 )
 
-if exist "%HOMEDRIVE%\*.tmp" del "%HOMEDRIVE%\*.tmp" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
+if exist "%HOMEDRIVE%\*.tmp" del "%HOMEDRIVE%\*.tmp" /f /q >nul 2>&1 & set /a filesDeleted+=1
 if exist "%HOMEDRIVE%\temp\*.tmp" del "%HOMEDRIVE%\temp\*.tmp" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
-if exist "%windir%\prefetch\*.*" del "%windir%\prefetch\*.*" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
-if exist "%windir%\temp\*.*" del "%windir%\temp\*.*" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
-if exist "%windir%\temp\" rd /s /q "%windir%\temp\" >nul 2>&1 & set /a foldersRemoved+=1
-if exist "%windir%\SoftwareDistribution\Download" rd /s /q "%windir%\SoftwareDistribution\Download" >nul 2>&1 & set /a foldersRemoved+=1
+echo Drive temp cleanup complete.
+
 if exist "%ALLUSERSPROFILE%\Microsoft\Windows\WER\Reportqueue" rd /s /q "%ALLUSERSPROFILE%\Microsoft\Windows\WER\Reportqueue" >nul 2>&1 & set /a foldersRemoved+=1
+echo Update leftovers removed.
 echo.
 echo [35m[1mSimple clean done, Deep cleaning initiated!!![0m
 echo [93m[INFO][0m This will probably take a bit longer to run, so again, be patient.
 
-del /f /s /q %windir%\*.bak >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q %systemdrive%\*.tmp >nul 2>&1 & set /a filesDeleted+=1
-echo I'm Still working.
-del /f /s /q %systemdrive%\*._mp >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q %systemdrive%\*.log >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q %systemdrive%\*.gid >nul 2>&1 & set /a filesDeleted+=1
-echo Trust me, I'm still working. :)
-del /f /s /q %systemdrive%\*.chk >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q %systemdrive%\*.old >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q %systemdrive%\recycled\*.* >nul 2>&1 & set /a filesDeleted+=1
-del /f /q "%UserProfile%\cookies\*.*" >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q "%UserProfile%\Local Settings\Temporary Internet Files\*.*" >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q "%UserProfile%\Local Settings\Temp\*.*" >nul 2>&1 & set /a filesDeleted+=1
-del /f /s /q "%UserProfile%\recent\*.*" >nul 2>&1 & set /a filesDeleted+=1
-
-
+del /f /s /q "%windir%\Logs\*.bak" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%windir%\Temp\*.bak" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%windir%\Logs\*.log" >nul 2>&1 & set /a filesDeleted+=1
+echo Finished clearing Win logs/temp files...
+del /f /s /q "%systemdrive%\*._mp" >nul 2>&1 & set /a filesDeleted+=1
+echo Removed ._mp files
+del /f /s /q "%systemdrive%\*.gid" >nul 2>&1 & set /a filesDeleted+=1
+echo Removed .gid files
+del /f /s /q "%systemdrive%\*.chk" >nul 2>&1 & set /a filesDeleted+=1
+echo Removed .chk files.
+echo.
+echo Clearing user cache and temp files...
+del /f /s /q "%LocalAppData%\Microsoft\Windows\INetCache\*.*" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%LocalAppData%\Temp\*.*" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%AppData%\Microsoft\Windows\Recent\*.*" >nul 2>&1 & set /a filesDeleted+=1
+echo User leftovers cleared.
 echo.
 echo Cleaning of junk files is finished!
-echo Files deleted     : %filesDeleted%
-echo Folders removed  : %foldersRemoved%
+timeout /t 2 /nobreak >nul
 echo.
+echo Lets go even deeper into cleaning...
+net stop wuauserv >nul 2>&1
+net stop bits >nul 2>&1
+net stop dosvc >nul 2>&1
+rd /s /q "%windir%\SoftwareDistribution\Download" >nul 2>&1 & set /a foldersRemoved+=1
+rd /s /q "%windir%\SoftwareDistribution\DeliveryOptimization" >nul 2>&1 & set /a foldersRemoved+=1
+timeout /t 2 /nobreak >nul
+net start wuauserv >nul 2>&1
+net start bits >nul 2>&1
+net start dosvc >nul 2>&1
+echo Cleaning Windows Update cache completed
+
+powershell -Command "Remove-Item $env:LOCALAPPDATA\Microsoft\Windows\Explorer\thumbcache*.db -Force -ErrorAction SilentlyContinue"
+echo Clearing thumbnail cache completed.
+
+del /f /q "%LocalAppData%\Microsoft\Windows\Explorer\IconCache.db" >nul 2>&1
+del /f /s /q "%windir%\ServiceProfiles\LocalService\AppData\Local\FontCache\*" >nul 2>&1
+echo Clearing icon and font cache completed.
+
+echo Optimizing drives...
+powershell -Command "$ProgressPreference = 'SilentlyContinue'; Get-Volume | Where-Object { $_.DriveLetter -and $_.DriveType -eq 'Fixed' } | ForEach-Object { Write-Host ('  Drive ' + $_.DriveLetter + ': ') -NoNewline -ForegroundColor Yellow; Optimize-Volume -DriveLetter $_.DriveLetter -ReTrim -ErrorAction SilentlyContinue; Write-Host 'Completed' -ForegroundColor Green }"
+
+echo.
+echo Main cleaning done, your results:
+echo [33m[1mFiles deleted[0m: %filesDeleted%
+echo [33m[1mFolders removed[0m: %foldersRemoved%
+echo.
+timeout /t 4 /nobreak > NUL
+echo.
+goto SHUTDOWN
+
+
+REM ###################################################### NEW SECTION [3] ##############################################################
+REM starts the clean up
+:DCLEANWWIN
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+timeout /t 1 /nobreak > NUL
+echo.
+echo Cleaning system junk files, please wait...
+timeout /t 1 /nobreak > NUL
+echo This can take a few min before you see anything happen.
+timeout /t 1 /nobreak > NUL
+echo If programs are using the files, those files will not be deleted.
+timeout /t 1 /nobreak > NUL
+echo.
+
+REM Initialize counters
+set "filesDeleted=0"
+set "foldersRemoved=0"
+
+REM --- Ask about recycle bin ---
+set "pdelete="
+:ASK_RECYCLE3
+set "choice="
+set /p choice=Do you want me to empty your Recycling Bin? [31m^(permanently deleted^) [33m^[Y/N^][0m:
+if /i "%choice%"=="y" (
+    set "pdelete=YES"
+    goto ASK_SHUTDOWN3
+)
+if /i "%choice%"=="n" (
+    set "pdelete=NO"
+    goto ASK_SHUTDOWN3
+)
+echo [31mInvalid input! Please enter Y or N only.[0m
+echo.
+goto ASK_RECYCLE3
+
+REM --- Ask about shutdown ---
+:ASK_SHUTDOWN3
+set "powerc="
+set "choice="
+set /p choice=Do you want me to shutdown your PC after cleanup? [33m^[Y/N^][0m:
+if /i "%choice%"=="y" (
+    set "powerc=SHUTDOWN"
+    goto CONTINUE_CLEANUP3
+)
+if /i "%choice%"=="n" (
+    goto CONTINUE_CLEANUP3
+)
+echo [31mInvalid input! Please enter Y or N only.[0m
+echo.
+goto ASK_SHUTDOWN3
+
+:CONTINUE_CLEANUP3
+timeout /t 1 /nobreak > NUL
+echo.
+echo Cleanup will begin.
+timeout /t 1 /nobreak > NUL
+echo.
+cls
+
+REM -------------------------
+REM Recycle Bin
+if "%pdelete%"=="YES" (
+   for %%d in (c d e f g h i j k l m n o p q r s t u v w x y z) do (
+     if exist "%%d:\$Recycle.bin" (
+        rd /s /q "%%d:\$Recycle.bin" >nul 2>&1
+        if not exist "%%d:\$Recycle.bin" set /a foldersRemoved+=1
+     )
+   )
+   echo Recycle bin emptied.
+   timeout /t 1 /nobreak > NUL
+)
+echo.
+echo This can take a while, so please, be patient.
+REM -------------------------
+REM Delete files/folders (all original areas)
+for %%F in (%temp%\*.tmp) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+echo Cleared temp folder.
+for %%F in (%windir%\prefetch\*.*) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+echo Finished clearing prefetch folder.
+for %%F in (%windir%\temp\*.*) do del "%%F" /f >nul 2>&1 & set /a filesDeleted+=1
+for /d %%D in ("%windir%\temp\*") do rd /s /q "%%D" >nul 2>&1 & set /a foldersRemoved+=1
+echo Finished cleaning Windows Temp folder.
+
+if exist "%LocalAppData%\temp\*.*" (
+  for %%F in (%LocalAppData%\temp\*.*) do del "%%F" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
+  for /d %%D in (%LocalAppData%\temp\*.*) do rd /s /q "%%D" >nul 2>&1 & set /a foldersRemoved+=1
+  echo Finished clearing LocalAppData temp.
+)
+
+if exist "%HOMEDRIVE%\*.tmp" del "%HOMEDRIVE%\*.tmp" /f /q >nul 2>&1 & set /a filesDeleted+=1
+if exist "%HOMEDRIVE%\temp\*.tmp" del "%HOMEDRIVE%\temp\*.tmp" /f /s /q >nul 2>&1 & set /a filesDeleted+=1
+echo Drive temp cleanup complete.
+
+if exist "%ALLUSERSPROFILE%\Microsoft\Windows\WER\Reportqueue" rd /s /q "%ALLUSERSPROFILE%\Microsoft\Windows\WER\Reportqueue" >nul 2>&1 & set /a foldersRemoved+=1
+echo Update leftovers removed.
+echo.
+echo [35m[1mSimple clean done, Deep cleaning initiated!!![0m
+echo [93m[INFO][0m This will probably take a bit longer to run, so again, be patient.
+
+del /f /s /q "%windir%\Logs\*.bak" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%windir%\Temp\*.bak" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%windir%\Logs\*.log" >nul 2>&1 & set /a filesDeleted+=1
+echo Finished clearing Win logs/temp files...
+del /f /s /q "%systemdrive%\*._mp" >nul 2>&1 & set /a filesDeleted+=1
+echo Removed ._mp files
+del /f /s /q "%systemdrive%\*.gid" >nul 2>&1 & set /a filesDeleted+=1
+echo Removed .gid files
+del /f /s /q "%systemdrive%\*.chk" >nul 2>&1 & set /a filesDeleted+=1
+echo Removed .chk files.
+echo.
+echo Clearing user cache and temp files...
+del /f /s /q "%LocalAppData%\Microsoft\Windows\INetCache\*.*" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%LocalAppData%\Temp\*.*" >nul 2>&1 & set /a filesDeleted+=1
+del /f /s /q "%AppData%\Microsoft\Windows\Recent\*.*" >nul 2>&1 & set /a filesDeleted+=1
+echo User leftovers cleared.
+echo.
+echo Cleaning of junk files is finished!
+timeout /t 2 /nobreak >nul
+echo.
+echo Lets go even deeper into cleaning...
+net stop wuauserv >nul 2>&1
+net stop bits >nul 2>&1
+net stop dosvc >nul 2>&1
+rd /s /q "%windir%\SoftwareDistribution\Download" >nul 2>&1 & set /a foldersRemoved+=1
+rd /s /q "%windir%\SoftwareDistribution\DeliveryOptimization" >nul 2>&1 & set /a foldersRemoved+=1
+timeout /t 2 /nobreak >nul
+net start wuauserv >nul 2>&1
+net start bits >nul 2>&1
+net start dosvc >nul 2>&1
+echo Cleaning Windows Update cache completed
+
+powershell -Command "Remove-Item $env:LOCALAPPDATA\Microsoft\Windows\Explorer\thumbcache*.db -Force -ErrorAction SilentlyContinue"
+echo Clearing thumbnail cache completed.
+
+del /f /q "%LocalAppData%\Microsoft\Windows\Explorer\IconCache.db" >nul 2>&1
+del /f /s /q "%windir%\ServiceProfiles\LocalService\AppData\Local\FontCache\*" >nul 2>&1
+echo Clearing icon and font cache completed.
+echo.
+echo Optimizing drives...
+powershell -Command "$ProgressPreference = 'SilentlyContinue'; Get-Volume | Where-Object { $_.DriveLetter -and $_.DriveType -eq 'Fixed' } | ForEach-Object { Write-Host ('  Drive ' + $_.DriveLetter + ': ') -NoNewline -ForegroundColor Yellow; Optimize-Volume -DriveLetter $_.DriveLetter -ReTrim -ErrorAction SilentlyContinue; Write-Host 'Completed' -ForegroundColor Green }"
+
+echo.
+echo Main cleaning done, your results:
+echo [33m[1mFiles deleted[0m: %filesDeleted%
+echo [33m[1mFolders removed[0m: %foldersRemoved%
+echo.
+timeout /t 3 /nobreak > NUL
+echo Lets start the final checks.
+timeout /t 2 /nobreak > NUL
+echo.
+
+echo Lets flush the DNS cache...
+ipconfig /flushdns
+echo Flushing completed...
+
+timeout /t 1 /nobreak > NUL
+echo.
+echo Running System File Checker (SFC)...
+sfc /scannow
+
+echo.
+echo Running DISM health restore...
+dism /Online /Cleanup-Image /RestoreHealth
+
+echo.
+echo System completed.
 timeout /t 2 /nobreak > NUL
 echo Thank you for using my script.
 timeout /t 1 /nobreak > NUL
@@ -352,7 +594,7 @@ echo.
 goto SHUTDOWN
 
 
-REM ###################################################### NEW SECTION [3] ##############################################################
+REM ###################################################### NEW SECTION [4] ##############################################################
 REM shows sytem info
 :SYSTEM
 cls
@@ -427,7 +669,6 @@ echo.
 GOTO start
 
 :YES
-
 echo Exporting System Info...
 echo.>"%UserProfile%\SYSTEM-INFO.txt"
 REM: Section 1: OS information
@@ -535,7 +776,7 @@ pause
 goto MENU
 
 
-REM ###################################################### NEW SECTION [4] ##############################################################
+REM ###################################################### NEW SECTION [5] ##############################################################
 REM Windows 11 Check and repair
 :WINFIX
 cls
@@ -553,7 +794,7 @@ sfc /scannow
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [5] ##############################################################
+REM ###################################################### NEW SECTION [6] ##############################################################
 :IMGREPAIR
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -721,7 +962,7 @@ echo Your Image Cleanup is completed.
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [6] ##############################################################
+REM ###################################################### NEW SECTION [7] ##############################################################
 :CHCKDSK
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -870,7 +1111,7 @@ echo.
 GOTO CHCKDSK3
 
 
-REM ###################################################### NEW SECTION [7] ##############################################################
+REM ###################################################### NEW SECTION [8] ##############################################################
 :HOST
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -885,7 +1126,7 @@ notepad %windir%\system32\drivers\etc\hosts
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [8] ##############################################################
+REM ###################################################### NEW SECTION [9] ##############################################################
 :DISKC
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -926,7 +1167,7 @@ pause
 goto MENU
 
 
-REM ###################################################### NEW SECTION [9] ##############################################################
+REM ###################################################### NEW SECTION [10] ##############################################################
 :DISKMANAGE
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -970,7 +1211,7 @@ pause
 goto MENU
 
 
-REM ###################################################### NEW SECTION [10] ##############################################################
+REM ###################################################### NEW SECTION [11] ##############################################################
 :NETWORK
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1091,7 +1332,7 @@ REM Here, lets see if you like to do a custom trace/ping to a specified URL/IP.
     echo.
    GOTO TRACEPING
 
-REM ###################################################### NEW SECTION [11] ##############################################################
+REM ###################################################### NEW SECTION [12] ##############################################################
 :YTRACEPING
 cls
 set "address="
@@ -1174,7 +1415,7 @@ notepad.exe "%UserProfile%\Ping_Traceroute.txt"
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [12] ##############################################################
+REM ###################################################### NEW SECTION [13] ##############################################################
 :SPEEDTEST
 cls
 setlocal
@@ -1289,7 +1530,7 @@ if "%stexport%"=="save" (
   pause
   goto MENU
 
-REM ###################################################### NEW SECTION [13] ##############################################################
+REM ###################################################### NEW SECTION [14] ##############################################################
 :FDNS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1343,7 +1584,7 @@ if "%addrenew%"=="RENEW" (
 )
 
 
-REM ###################################################### NEW SECTION [14] ##############################################################
+REM ###################################################### NEW SECTION [15] ##############################################################
 :RSETNADPT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1414,7 +1655,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [15] ##############################################################
+REM ###################################################### NEW SECTION [16] ##############################################################
 :TPORT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1473,7 +1714,7 @@ echo. >>  "%UserProfile%\Port_Test_Results.txt"
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [16] ##############################################################
+REM ###################################################### NEW SECTION [17] ##############################################################
 REM Open Reliability Monitor
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1489,7 +1730,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [17] ##############################################################
+REM ###################################################### NEW SECTION [18] ##############################################################
 REM Open Event Viewer
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1506,7 +1747,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [18] ##############################################################
+REM ###################################################### NEW SECTION [19] ##############################################################
 REM Auto Clean system for Windows, (on boot). Creates a file in the Startup folder.
 :ACCHECK
 cls
@@ -1605,7 +1846,7 @@ if exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\AutoClean.bat"
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [19] ##############################################################
+REM ###################################################### NEW SECTION [20] ##############################################################
 :CCAL
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1623,7 +1864,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [20] ##############################################################
+REM ###################################################### NEW SECTION [21] ##############################################################
 REM Make Godmode button
 :GODMODE
 cls
@@ -1735,7 +1976,7 @@ echo.
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [21] ##############################################################
+REM ###################################################### NEW SECTION [22] ##############################################################
 REM Rebuild Icon Cache
 :REBUILDICON
 cls
@@ -1815,7 +2056,7 @@ timeout /t 3 /nobreak >Nul
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [22] ##############################################################
+REM ###################################################### NEW SECTION [23] ##############################################################
 :WINKEY
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1901,7 +2142,7 @@ echo Close notepad to continue.
 notepad.exe "%UserProfile%\Win_11_Product_key.txt"
 goto MENU
 
-REM ###################################################### NEW SECTION [23] ##############################################################
+REM ###################################################### NEW SECTION [24] ##############################################################
 :BATREPORT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1957,7 +2198,7 @@ echo "%choice%" is not valid
 echo.
 GOTO BATREPORTPASSOFF
 
-REM ###################################################### NEW SECTION [24] ##############################################################
+REM ###################################################### NEW SECTION [25] ##############################################################
 :POWERCON
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2022,7 +2263,7 @@ start "" "%UserProfile%\Desktop\energy-report.html"
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [25] ##############################################################
+REM ###################################################### NEW SECTION [26] ##############################################################
 :CUNINSTALLER
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2118,7 +2359,7 @@ pause
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [26] ##############################################################
+REM ###################################################### NEW SECTION [27] ##############################################################
 :DRIVETREE
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2209,7 +2450,7 @@ GOTO TREEANOTHER
 
 
 
-REM ###################################################### NEW SECTION [27] ##############################################################
+REM ###################################################### NEW SECTION [28] ##############################################################
 :WINSCAN
 cls
 REM #####################################  ART START #####################################
@@ -2439,7 +2680,7 @@ timeout /t 2 /nobreak > NUL
 GOTO SHUTDOWN
 
 
-REM ###################################################### NEW SECTION [28] ##############################################################
+REM ###################################################### NEW SECTION [29] ##############################################################
 :INSTALLEDPROGRAMS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2455,7 +2696,7 @@ echo.
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [29] ##############################################################
+REM ###################################################### NEW SECTION [30] ##############################################################
 :RESTARTINBIOS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
