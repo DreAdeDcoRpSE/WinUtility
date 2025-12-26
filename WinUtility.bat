@@ -93,8 +93,9 @@ echo ## 25.  [37mPower Configuration[32m [33m(For those on laptops)[32m
 echo ## 26.  [37mUninstaller - (Semi Advanced)[32m
 echo ## 27.  [37mDrive Tree Exporter[32m
 echo ## 28.  [37mVirus Scan - (Windows Defender)[32m
-echo ## 29.  [37mCreate Installed Programs List[32m
-echo ## 30.  [37mRestart into BIOS[32m
+echo ## 29.  [37mCompactOS Optimization Toggle[32m
+echo ## 30.  [37mCreate Installed Programs List[32m
+echo ## 31.  [37mRestart into BIOS[32m
 echo ## [33m?[32m.   [37mAbout / Copyright[32m
 echo ## [31mQ[32m.   [37mExit Script[32m
 echo #########################################[0m
@@ -130,8 +131,9 @@ if %N%==25 GOTO POWERCON
 if %N%==26 GOTO CUNINSTALLER
 if %N%==27 GOTO DRIVETREE
 if %N%==28 GOTO WINSCAN
-if %N%==29 GOTO INSTALLEDPROGRAMS
-if %N%==30 GOTO RESTARTINBIOS
+if %N%==29 GOTO COMPACTOST
+if %N%==30 GOTO INSTALLEDPROGRAMS
+if %N%==31 GOTO RESTARTINBIOS
 if %N%==? GOTO ABOUT
 if %N%==Q GOTO QUIT
 if %N%==q GOTO QUIT
@@ -2680,7 +2682,132 @@ timeout /t 2 /nobreak > NUL
 GOTO SHUTDOWN
 
 
+
 REM ###################################################### NEW SECTION [29] ##############################################################
+:COMPACTOST
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+echo [36mCompactOS Optimization Toggle[0m
+echo.
+echo This feature allows users to enable, disable, or check the status of CompactOS, a Windows built-in compression
+echo system that reduces disk usage by compressing read-only operating system files. It^’s most useful on devices
+echo with limited storage, offering space savings of 1^-7+ GB with minimal performance impact on modern hardware. The
+echo option is safe, reversible, and transparent to applications.
+echo.
+
+echo Checking current CompactOS status...
+timeout /t 2 /nobreak > NUL
+echo.
+echo [33m
+echo ------------------------
+echo ^| Current Status:
+echo ------------------------
+for /f "tokens=* delims=" %%a in ('compact /compactos:query 2^>nul') do (
+    echo ^> %%a
+)
+echo [0m
+echo.
+timeout /t 1 /nobreak > NUL
+echo.
+
+echo Depending on the results above, what would you like to do? If you already have it Enabled, or
+echo it is in the ^"Compact state^", then don^'t compact it again. You^'ll gain nothing.
+echo.
+echo [36mCompactOS Disk Compression Options
+echo ==================================[0m
+echo.
+echo 1.) Enable CompactOS (save disk space, ~1-7 GB)
+echo.
+echo 2.) Disable CompactOS (restore files to full size)
+echo.
+echo 3.) Return to main menu
+echo.
+
+choice /c 123 /m "Select an option"
+if errorlevel 3 goto MENU
+if errorlevel 2 goto DISABLE_COMPACT_Q
+if errorlevel 1 goto ENABLE_COMPACT_Q
+
+
+:ENABLE_COMPACT_Q
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+echo Enabling CompactOS compresses read-only Windows system files to save disk space.
+echo.
+echo [92mBenefits:[0m
+echo  - Frees up 1 to 7+ GB of storage (ideal for smaller SSDs or low-disk systems).
+echo  - Fully safe and reversible with no impact on personal files or installed programs.
+echo  - Transparent to Windows and applications with no compatibility issues.
+echo.
+echo [33mTrade-offs:[0m
+echo  - Slight CPU overhead during system file access (usually unnoticeable on modern CPUs).
+echo  - May slightly increase boot or app load times on very low-end hardware.
+echo  - Requires free disk space during initial compression (temporarily).
+echo.
+echo CompactOS is recommended if you're low on disk space and have a modern processor.
+echo.
+set "compactos="
+set /p "compactos=You sure you saw that it didn't already have it compressed & you want to compress it? [33m[Y/N][0m: "
+if /i '%compactos%'=='y' GOTO ENABLE_COMPACT_Y
+if /i '%compactos%'=='n' GOTO COMPACTOST
+if '%compactos%'=='' GOTO ENABLE_COMPACT_Q
+echo "%compactos%" is not valid
+echo.
+GOTO ENABLE_COMPACT_Q
+
+:ENABLE_COMPACT_Y
+echo.
+echo Okay...
+timeout /t 1 /nobreak > NUL
+echo Enabling CompactOS (this may take upto 5-15 minutes)...
+timeout /t 2 /nobreak > NUL
+compact /compactos:always
+echo.
+echo [92mCompactOS Disk Compression completed.[0m
+pause
+goto MENU
+
+
+:DISABLE_COMPACT_Q
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+echo Disabling CompactOS will decompress all system files that were previously compressed to save disk space.
+echo This process restores files to their original, full size — typically freeing up CPU overhead but consuming
+echo 1-7 GB ^(or more^) of additional disk space.
+echo.
+echo The operation may take several minutes, requires sufficient free space on your drive, and does not affect
+echo your personal files, installed applications, or system stability. Once disabled, Windows will no longer use
+echo CompactOS compression unless re-enabled.
+echo.
+echo.
+echo Before I decompress your OS,
+set "compactos="
+set /p "compactos=You sure you saw that it was compressed and this is what you want to do? [33m[Y/N][0m: "
+if /i '%compactos%'=='y' GOTO DISABLE_COMPACT_Y
+if /i '%compactos%'=='n' GOTO COMPACTOST
+if '%compactos%'=='' GOTO DISABLE_COMPACT_Q
+echo "%compactos%" is not valid
+echo.
+GOTO DISABLE_COMPACT_Q
+
+:DISABLE_COMPACT_Y
+echo.
+echo Okay...
+timeout /t 1 /nobreak > NUL
+echo Disabling CompactOS (this may take upto 5-15 minutes)...
+timeout /t 2 /nobreak > NUL
+compact /compactos:never
+echo.
+echo [92mCompactOS Disk Decompression completed.[0m
+pause
+goto MENU
+
+
+
+REM ###################################################### NEW SECTION [30] ##############################################################
 :INSTALLEDPROGRAMS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2696,7 +2823,7 @@ echo.
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [30] ##############################################################
+REM ###################################################### NEW SECTION [31] ##############################################################
 :RESTARTINBIOS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
