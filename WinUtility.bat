@@ -72,30 +72,31 @@ echo ## 4.   [37mSystem Information[32m
 echo ## 5.   [37mCheck ^& Repair Windows 11[32m
 echo ## 6.   [37mImage Repair 11 -[31m[1m Run only if #4 showed issues[0m[32m
 echo ## 7.   [37mRun Check Disk to possibly repair a HD[32m
-echo ## 8.   [37mOpen Host File[32m
-echo ## 9.   [37mOpen Disk CleanUp[32m
-echo ## 10.  [37mOpen Disk Managment[32m
+echo ## 8.   [37mOpen Windows Tools Listing[32m
+echo ## 9.   [37mOpen Host File[32m
+echo ## 10.  [37mOpen Disk CleanUp[32m
+echo ## 11.  [37mOpen Disk Managment[32m
 echo ## 12.  [37mNetwork Check [33m(Pings/Traceroute [35mgoogle.com[33m by Default)[32m
-echo ## 12.  [37mPing/Traceroute Custom IP/URL[32m
-echo ## 13.  [37mSpeed Test by Ookla[32m
-echo ## 14.  [37mFlush DNS[32m
-echo ## 15.  [37mReset Network Adapters[32m
-echo ## 16.  [37mPort Listing[32m
-echo ## 17.  [37mOpen Reliability Monitor[32m
-echo ## 18.  [37mOpen Event Viewer[32m
-echo ## 19.  [37mWindows AutoClean on Boot[32m
-echo ## 20.  [37mWindows Color Calibration[32m
-echo ## 21.  [37mMake Godmode Shortcut[32m
-echo ## 22.  [37mRebuild Icon Cache[32m
-echo ## 23.  [37mRetreve Win 11 Product Key[32m
-echo ## 24.  [37mCreate Battery Report[32m [33m(For those on laptops)[32m
-echo ## 25.  [37mPower Configuration[32m [33m(For those on laptops)[32m
-echo ## 26.  [37mUninstaller - (Semi Advanced)[32m
-echo ## 27.  [37mDrive Tree Exporter[32m
-echo ## 28.  [37mVirus Scan - (Windows Defender)[32m
-echo ## 29.  [37mCompactOS Optimization Toggle[32m
-echo ## 30.  [37mCreate Installed Programs List[32m
-echo ## 31.  [37mRestart into BIOS[32m
+echo ## 13.  [37mPing/Traceroute Custom IP/URL[32m
+echo ## 14.  [37mSpeed Test by Ookla[32m
+echo ## 15.  [37mFlush DNS[32m
+echo ## 16.  [37mReset Network Adapters[32m
+echo ## 17.  [37mPort Listing[32m
+echo ## 18.  [37mOpen Reliability Monitor[32m
+echo ## 19.  [37mOpen Event Viewer[32m
+echo ## 20.  [37mWindows AutoClean on Boot[32m
+echo ## 21.  [37mWindows Color Calibration[32m
+echo ## 22.  [37mMake Godmode Shortcut[32m
+echo ## 23.  [37mRebuild Icon Cache[32m
+echo ## 24.  [37mRetreve Win 11 Product Key[32m
+echo ## 25.  [37mCreate Battery Report[32m [33m(For those on laptops)[32m
+echo ## 26.  [37mPower Configuration[32m [33m(For those on laptops)[32m
+echo ## 27.  [37mUninstaller - (Semi Advanced)[32m
+echo ## 28.  [37mDrive Tree Exporter[32m
+echo ## 29.  [37mVirus Scan - (Windows Defender)[32m
+echo ## 30.  [37mCompactOS Optimization Toggle[32m
+echo ## 31.  [37mCreate Installed Programs List[32m
+echo ## 32.  [37mRestart into BIOS[32m
 echo ## [33m?[32m.   [37mAbout / Copyright[32m
 echo ## [31mQ[32m.   [37mExit Script[32m
 echo #########################################[0m
@@ -110,30 +111,31 @@ if %N%==4 GOTO SYSTEM
 if %N%==5 GOTO WINFIX
 if %N%==6 GOTO IMGREPAIR
 if %N%==7 GOTO CHCKDSK
-if %N%==8 GOTO HOST
-if %N%==9 GOTO DISKC
-if %N%==10 GOTO DISKMANAGE
-if %N%==11 GOTO NETWORK
-if %N%==12 GOTO YTRACEPING
-if %N%==13 GOTO SPEEDTEST
-if %N%==14 GOTO FDNS
-if %N%==15 GOTO RSETNADPT
-if %N%==16 GOTO TPORT
-if %N%==17 GOTO OPENREL
-if %N%==18 GOTO OPENEVENTVWR
-if %N%==19 GOTO ACCHECK
-if %N%==20 GOTO CCAL
-if %N%==21 GOTO GODMODE
-if %N%==22 GOTO REBUILDICON
-if %N%==23 GOTO WINKEY
-if %N%==24 GOTO BATREPORT
-if %N%==25 GOTO POWERCON
-if %N%==26 GOTO CUNINSTALLER
-if %N%==27 GOTO DRIVETREE
-if %N%==28 GOTO WINSCAN
-if %N%==29 GOTO COMPACTOST
-if %N%==30 GOTO INSTALLEDPROGRAMS
-if %N%==31 GOTO RESTARTINBIOS
+if %N%==8 GOTO WTOOLS
+if %N%==9 GOTO HOST
+if %N%==10 GOTO DISKC
+if %N%==11 GOTO DISKMANAGE
+if %N%==12 GOTO NETWORK
+if %N%==13 GOTO YTRACEPING
+if %N%==14 GOTO SPEEDTEST
+if %N%==15 GOTO FDNS
+if %N%==16 GOTO RSETNADPT
+if %N%==17 GOTO TPORT
+if %N%==18 GOTO OPENREL
+if %N%==19 GOTO OPENEVENTVWR
+if %N%==20 GOTO ACCHECK
+if %N%==21 GOTO CCAL
+if %N%==22 GOTO GODMODE
+if %N%==23 GOTO REBUILDICON
+if %N%==24 GOTO WINKEY
+if %N%==25 GOTO BATREPORT
+if %N%==26 GOTO POWERCON
+if %N%==27 GOTO CUNINSTALLER
+if %N%==28 GOTO DRIVETREE
+if %N%==29 GOTO WINSCAN
+if %N%==30 GOTO COMPACTOST
+if %N%==31 GOTO INSTALLEDPROGRAMS
+if %N%==32 GOTO RESTARTINBIOS
 if %N%==? GOTO ABOUT
 if %N%==Q GOTO QUIT
 if %N%==q GOTO QUIT
@@ -1114,6 +1116,20 @@ GOTO CHCKDSK3
 
 
 REM ###################################################### NEW SECTION [8] ##############################################################
+:WTOOLS
+cls
+for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
+echo.
+echo.
+echo Let me open the Windows tools folder for you.
+timeout /t 3 /nobreak > NUL
+echo.
+control admintools
+pause
+goto MENU
+
+
+REM ###################################################### NEW SECTION [9] ##############################################################
 :HOST
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1128,7 +1144,7 @@ notepad %windir%\system32\drivers\etc\hosts
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [9] ##############################################################
+REM ###################################################### NEW SECTION [10] ##############################################################
 :DISKC
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1169,7 +1185,7 @@ pause
 goto MENU
 
 
-REM ###################################################### NEW SECTION [10] ##############################################################
+REM ###################################################### NEW SECTION [11] ##############################################################
 :DISKMANAGE
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1213,7 +1229,7 @@ pause
 goto MENU
 
 
-REM ###################################################### NEW SECTION [11] ##############################################################
+REM ###################################################### NEW SECTION [12] ##############################################################
 :NETWORK
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1334,7 +1350,7 @@ REM Here, lets see if you like to do a custom trace/ping to a specified URL/IP.
     echo.
    GOTO TRACEPING
 
-REM ###################################################### NEW SECTION [12] ##############################################################
+REM ###################################################### NEW SECTION [13] ##############################################################
 :YTRACEPING
 cls
 set "address="
@@ -1417,7 +1433,7 @@ notepad.exe "%UserProfile%\Ping_Traceroute.txt"
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [13] ##############################################################
+REM ###################################################### NEW SECTION [14] ##############################################################
 :SPEEDTEST
 cls
 setlocal
@@ -1532,7 +1548,7 @@ if "%stexport%"=="save" (
   pause
   goto MENU
 
-REM ###################################################### NEW SECTION [14] ##############################################################
+REM ###################################################### NEW SECTION [15] ##############################################################
 :FDNS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1586,7 +1602,7 @@ if "%addrenew%"=="RENEW" (
 )
 
 
-REM ###################################################### NEW SECTION [15] ##############################################################
+REM ###################################################### NEW SECTION [16] ##############################################################
 :RSETNADPT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1657,7 +1673,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [16] ##############################################################
+REM ###################################################### NEW SECTION [17] ##############################################################
 :TPORT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1716,7 +1732,7 @@ echo. >>  "%UserProfile%\Port_Test_Results.txt"
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [17] ##############################################################
+REM ###################################################### NEW SECTION [18] ##############################################################
 REM Open Reliability Monitor
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1732,7 +1748,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [18] ##############################################################
+REM ###################################################### NEW SECTION [19] ##############################################################
 REM Open Event Viewer
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
 echo.
@@ -1749,7 +1765,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [19] ##############################################################
+REM ###################################################### NEW SECTION [20] ##############################################################
 REM Auto Clean system for Windows, (on boot). Creates a file in the Startup folder.
 :ACCHECK
 cls
@@ -1848,7 +1864,7 @@ if exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\AutoClean.bat"
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [20] ##############################################################
+REM ###################################################### NEW SECTION [21] ##############################################################
 :CCAL
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -1866,7 +1882,7 @@ timeout /t 2 /nobreak > NUL
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [21] ##############################################################
+REM ###################################################### NEW SECTION [22] ##############################################################
 REM Make Godmode button
 :GODMODE
 cls
@@ -1978,7 +1994,7 @@ echo.
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [22] ##############################################################
+REM ###################################################### NEW SECTION [23] ##############################################################
 REM Rebuild Icon Cache
 :REBUILDICON
 cls
@@ -2058,7 +2074,7 @@ timeout /t 3 /nobreak >Nul
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [23] ##############################################################
+REM ###################################################### NEW SECTION [24] ##############################################################
 :WINKEY
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2144,7 +2160,7 @@ echo Close notepad to continue.
 notepad.exe "%UserProfile%\Win_11_Product_key.txt"
 goto MENU
 
-REM ###################################################### NEW SECTION [24] ##############################################################
+REM ###################################################### NEW SECTION [25] ##############################################################
 :BATREPORT
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2200,7 +2216,7 @@ echo "%choice%" is not valid
 echo.
 GOTO BATREPORTPASSOFF
 
-REM ###################################################### NEW SECTION [25] ##############################################################
+REM ###################################################### NEW SECTION [26] ##############################################################
 :POWERCON
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2265,7 +2281,7 @@ start "" "%UserProfile%\Desktop\energy-report.html"
 pause
 GOTO MENU
 
-REM ###################################################### NEW SECTION [26] ##############################################################
+REM ###################################################### NEW SECTION [27] ##############################################################
 :CUNINSTALLER
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2361,7 +2377,7 @@ pause
 GOTO MENU
 
 
-REM ###################################################### NEW SECTION [27] ##############################################################
+REM ###################################################### NEW SECTION [28] ##############################################################
 :DRIVETREE
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2452,7 +2468,7 @@ GOTO TREEANOTHER
 
 
 
-REM ###################################################### NEW SECTION [28] ##############################################################
+REM ###################################################### NEW SECTION [29] ##############################################################
 :WINSCAN
 cls
 REM #####################################  ART START #####################################
@@ -2683,7 +2699,7 @@ GOTO SHUTDOWN
 
 
 
-REM ###################################################### NEW SECTION [29] ##############################################################
+REM ###################################################### NEW SECTION [30] ##############################################################
 :COMPACTOST
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2807,7 +2823,7 @@ goto MENU
 
 
 
-REM ###################################################### NEW SECTION [30] ##############################################################
+REM ###################################################### NEW SECTION [31] ##############################################################
 :INSTALLEDPROGRAMS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
@@ -2823,7 +2839,7 @@ echo.
 pause
 goto MENU
 
-REM ###################################################### NEW SECTION [31] ##############################################################
+REM ###################################################### NEW SECTION [32] ##############################################################
 :RESTARTINBIOS
 cls
 for /f "tokens=* delims=:!" %%A in ('findstr /b "::!" "%~f0"') do @echo(%%A
